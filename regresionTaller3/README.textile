@@ -1,0 +1,16 @@
+h1. Regresión No Lineal.
+
+h3. Taller3 : Y(x)= W1X^n 
+
+* Figure1: Dataset y W aleatorios 
+* Figure2: Modelo sobre el dataset 
+* Figure3: Función de costo J 
+* Figure4: Funcion de costo 3D Figure5: Gráfica de contorno.
+
+h3. Polinomio extendido : Pn= W0X^0 + W1X^1 + W2X^2 + ... + WnX^n
+
+* Figure1: Dataset y W aleatorios 
+* Figure2: Modelo sobre el dataset 
+* Figure3: Función de costo J
+
+

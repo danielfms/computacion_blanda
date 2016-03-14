@@ -1,0 +1,6 @@
+W's generados con 
+
+ITER = 1000;  % Iteraciones para refinamiento;
+alpha= 0.001; % factor de aprendizaje.
+
+Generando 0.9 de error en todas las muestras.

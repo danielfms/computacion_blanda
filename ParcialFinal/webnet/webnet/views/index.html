@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<!--
+	Photon by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Nine9</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="stylesheets/literallycanvas.css" rel="stylesheet">
+		<link rel="stylesheet" href="stylesheets/main.css" />
+		<!-- dependency: React.js  -->
+        <script src="javascripts/react-with-addons.js"></script>
+        <!-- Literally Canvas -->
+        <script src="javascripts/literallycanvas.js"></script>
+        
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	</head>
+	<body>
+		<!-- Header -->
+			<section id="header">
+				<div class="inner">
+					<!--<span class="icon major fa-cloud"></span>-->
+					<span>
+					<img src="images/nine.png"></img>
+
+					</spam>
+					
+					<h1>Hola, Bienvenido a <strong>Nine</strong>, un proyecto de machine learning 
+					desarrollado para la clase de computación blanda</h1>
+					<p>Nine, realiza predicciones de dígitos gracias al entrenamineto de redes neuronales realizadas en <a href="https://www.tensorflow.org/" >Tensor Flow ™ </a> junto con el dataset <a href="https://www.cs.toronto.edu/~kriz/cifar.html" >Cifar 10 </a>
+					</p>
+					<ul class="actions">
+						<li><a href="#one" class="button scrolly">Empezar</a></li>
+					</ul>
+				</div>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="main style1">
+				<div class="container">
+					<div class="row 150%">
+						<div class="6u 12u$(medium)">
+							<header class="major">
+								<h2>Dibuje un dígito del 0 hasta el 9 </h2>
+							</header>
+							<p> Es obligatorio selecciónar el "stroke" de color blanco también el "bg" de color negro. La predicción se hará en base a valores predefinidos, luego de dibujar su dígito seleccione predecir para iniciar el procesamiento de su imagen.</p>
+							                         
+                            <form class="imgur-submit">
+                                <input type="submit" data-action="upload" value="Predecir">
+                            </form>
+                            <li id="l1" style ="visibility: hidden"><a>Procesando...</a></li>
+                            <li id="l2" style ="visibility: hidden"><a  href="#four"  class="button scrolly">Verificar</a></li>
+                            
+						</div>
+						<div class="6u$ 12u$(medium) important(medium)">
+							<div style="width: 500px; float: left">
+                                                          <div class="literally"></div>
+
+<script>
+  var lc = LC.init(
+           document.getElementsByClassName('literally')[0],
+            {imageURLPrefix: '../images'}
+        );
+
+  $(document).ready(function(){
+//    var lc = LC.init(document.getElementsByClassName('literally')[0]);
+//    $('.literally').literallycanvas({imageURLPrefix: 'images'})
+    $('[data-action=upload]').click(function(e) {
+      e.preventDefault();
+
+      //$('.imgur-submit').html('Uploading...')
+      $("#l1").attr("style", "visibility: visible");   
+
+      // this is all standard Imgur API; only LC-specific thing is the image
+      // data argument;
+      $.ajax({
+        url: 'http://localhost:3000/image',
+        type: 'POST',
+        headers: {
+          // Your application gets
+          Accept: 'application/json'
+        },
+        data: {
+          // convert the image data to base64
+          image:  lc.canvasForExport().toDataURL().split(',')[1],
+          type: 'base64'
+        },
+        success: function(result) {
+          $("#l1").attr("style", "visibility: hidden");   
+          $("#l2").attr("style", "visibility: visible");
+          $("#result").text(result);
+        },
+      });
+    });
+      
+     $('#l2').click(function(e) {  $("#l2").attr("style", "visibility: hidden");    });  
+      
+  });
+
+
+
+</script>
+
+                                                            
+                                                            </div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Two -->
+
+		<!-- Three -->			
+
+		<!-- Four -->
+			<section id="four" class="main style2 special">
+				<div class="container">
+					<header class="major">
+						<h2>Predicción</h2>
+					</header>
+					<p>Según el algoritmo el número es:</p>
+                    <p id="result" ></p>
+					<a  href="#one"  class="button scrolly">Volver a intentar</a>
+				</div>
+			</section>
+
+
+		<!-- Footer -->
+			<section id="footer">
+				<ul class="icons">					
+					<li><a href="#" class="icon alt fa-github"><span class="label">GitHub 1</span></a></li>
+					<li><a href="#" class="icon alt fa-github"><span class="label">GitHub 2</span></a></li>
+					<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+                                    </li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+				<img src="images/by.png"></img>
+			</section>
+
+		<!-- Scripts -->
+			<script src="javascripts/jquery.min.js"></script>
+			<script src="javascripts/jquery.scrolly.min.js"></script>
+			<script src="javascripts/skel.min.js"></script>
+			<script src="javascripts/util.js"></script>
+			<script src="javascripts/main.js"></script>
+
+	</body>
+</html>

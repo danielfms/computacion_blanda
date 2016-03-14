@@ -1,0 +1,22 @@
+Testing Accuracy: 0.957031                                                                                                                                   
+Maybe is  :  4 Digit                                                                                                                                         
+('Tiempo empleado : ', 70.32887983322144)                                                                                                                    
+('learning: ', 0.01)                                                                                                                                         
+('Training Iters: ', 20000)                                                                                                                                  
+('batch_size: ', 128)   
+
+Testing Accuracy: 0.933594
+Maybe is  :  4 Digit
+('Tiempo empleado : ', 46.732521057128906)
+('learning: ', 0.01)
+('Training Iters: ', 20000)
+('batch_size: ', 128)
+
+
+-----------test!-----------
+Testing Accuracy: 0.976562
+Maybe is  :  4 Digit
+('Tiempo empleado : ', 1224.7647259235382)
+('learning: ', 0.01)
+('Training Iters: ', 300000)
+('batch_size: ', 128)
